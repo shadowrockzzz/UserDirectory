@@ -6,7 +6,7 @@
     >
       Back
     </button>
-    <select class="bg-gray-200 md:p-3 md:mr-3 rounded-lg border border-gray-500 max-w-4/5" (change)="timeZoneChangeEvent($event)" [value]="countryTimeZone">
+    <select class="bg-gray-200 p-3 md:mr-3 rounded-lg border border-gray-500 max-w-4/5" (change)="timeZoneChangeEvent($event)" [value]="countryTimeZone">
       <option class="px-2" *ngFor="let item of countryList" [value]="item">
         {{ item }}
       </option>
