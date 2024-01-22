@@ -105,7 +105,6 @@ export class UserPageComponent {
       this.localTime.mins = parseInt(this.time.substring(14, 16));
       this.localTime.secs = parseInt(this.time.substring(17, 19));
       this.localTime.milliSecs = parseInt(this.time.substring(20, 23));
-      console.log(this.localTime,this.time)
       this.setInterval();
       this.cdr.detectChanges();
     });
