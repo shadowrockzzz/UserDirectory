@@ -1,0 +1,49 @@
+<div class="bg-gray-200 shadow h-max">
+  <div class="flex md:flex-row flex-col justify-between px-10 py-3 w-full md:w-5/6 justify-center mx-auto my-10 gap-5 md:gap-0">
+    <button
+      (click)="goToMainPage()"
+      class="shadow shadow-lg md:px-6 py-1 bg-blue-500 text-white rounded-lg min-w-[15vh] max-w-[15vh]"
+    >
+      Back
+    </button>
+    <select class="bg-gray-200 md:p-3 md:mr-3 rounded-lg border border-gray-500 max-w-4/5" (change)="timeZoneChangeEvent($event)" [value]="countryTimeZone">
+      <option class="px-2" *ngFor="let item of countryList" [value]="item">
+        {{ item }}
+      </option>
+    </select>
+    <div class="flex flex-row py-3">
+      <p class="text-2xl">{{ get2Digits(this.localTime.hrs) }}:</p>
+      <p class="text-2xl">{{ get2Digits(this.localTime.mins) }}:</p>
+      <p class="text-2xl">{{ get2Digits(this.localTime.secs) }}</p>
+    </div>
+    <button class="shadow shadow-lg px-6 py-1 bg-blue-500 text-white rounded-lg min-w-[15vh]  max-w-[15vh]" (click)="timerTrigger()">
+      {{ isTimerRunning ? "Pause" : "Start" }}
+    </button>
+  </div>
+  <div class="flex md:flex-row flex-col justify-between md:px-10 py-2 w-4/5 gap-5 md:gap-0 mx-auto">
+    <div class="flex flex-col gap-5">
+      <div><span class="font-semibold">Name :</span> &nbsp; {{ getUserProfile().name }}</div>
+      <div><span class="font-semibold">UserName :</span> &nbsp; {{ getUserProfile().username }}</div>
+      <div>
+        <span class="font-semibold">Catch phrase :</span> &nbsp; {{ getUserProfile().company.catchPhrase }}
+      </div>
+    </div>
+    <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-2">
+        <div class="text-semibold mb-1"><span class="font-semibold">Address :</span></div>
+        <div class="ml-9"><span class="font-semibold">City :</span> &nbsp; {{ getUserProfile().address.city }}</div>
+        <div class="ml-9"><span class="font-semibold">Street :</span> &nbsp; {{ getUserProfile().address.street }}</div>
+        <div class="ml-9"><span class="font-semibold">Suite :</span> &nbsp; {{ getUserProfile().address.suite }}</div>
+        <div class="ml-9"><span class="font-semibold">zipcode :</span> &nbsp; {{ getUserProfile().address.zipcode }}</div>
+      </div>
+      <div><span class="font-semibold">Email :</span> &nbsp; {{ getUserProfile().email }}</div>
+      <div><span class="font-semibold">Phone :</span> &nbsp; {{ getUserProfile().phone }}</div>
+    </div>
+  </div>
+  <div class="py-5 w-full flex flex-wrap mt-10 w-full mx-auto gap-5 items-center justify-center">
+    <div class="md:w-1/4 w-full p-5 shadow-lg rounded-lg border-gray-400 min-h-[35vh]" *ngFor="let post of userPosts">
+      <div class="py-3"><span class="font-semibold">Title:</span> &nbsp;{{ post.title }}</div>
+      <div class="py-3"><span class="font-semibold">Content:</span> &nbsp;{{ post.body }}</div>
+    </div>
+  </div>
+</div>
